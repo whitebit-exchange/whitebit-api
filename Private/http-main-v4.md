@@ -666,6 +666,7 @@ Name | Type | Mandatory | Description
 transactionMethod | Number | **Yes** | Method. Example: **1** if need to display deposits / **2** if need to display withdraws
 ticker | String | **No** | Currency's ticker. Example: BTC
 address | String | **No** | Can be used for filtering transactions by specific address.
+uniqudId | String | **No** | Can be used for filtering transactions by specific unique id
 limit | Int | **Yes** | LIMIT is a special clause used to limit records a particular query can return. Default: 50, Min: 1, Max: 100
 offset | Int | **Yes** | If you want the request to return entries starting from a particular line, you can use OFFSET clause to tell it where it should start. Default: 0, Min: 0, Max: 10000
 

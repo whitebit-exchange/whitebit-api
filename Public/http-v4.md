@@ -103,7 +103,9 @@ NONE
     "min_withdraw": "0.001000000000000000",   // Identifies the single minimum withdrawal amount of a cryptocurrency.
     "max_withdraw": "0.000000000000000000",   // Identifies the single maximum withdrawal amount of a cryptocurrency.
     "maker_fee": "0.1",                       // Fees applied when liquidity is added to the order book.
-    "taker_fee": "0.1"                        // Fees applied when liquidity is removed from the order book.
+    "taker_fee": "0.1",                       // Fees applied when liquidity is removed from the order book.
+    "min_deposit": "0.01",                    // Min deposit amount
+    "max_deposit": "100",                     // Max deposit amount, will not be returned if there is no limit
   },
   "ETH": {
     "name": "Ethereum",
@@ -113,7 +115,8 @@ NONE
     "min_withdraw": "0.020000000000000000",
     "max_withdraw": "0.000000000000000000",
     "maker_fee": "0.1",
-    "taker_fee": "0.1"
+    "taker_fee": "0.1",
+    "min_deposit": "0.1"
   },
   "USDT": {
     "name": "Tether US",
@@ -136,6 +139,26 @@ NONE
         "OMNI"
       ],
       "default": "ERC20"                      // Default network for depositing / withdrawing
+    },
+    "limits": {                               // This object will be returned when currency has several networks/providers
+      "deposit": {                            // Deposits limits
+        "ERC20": {                            // Network
+          "min": "10",                        // Min deposit amount
+          "max": "1000"                       // Max deposit amount
+        },
+        "TRC20": {
+          "min": "10"                         // If there is no max limit, it is not returned
+        }
+      },
+      "withdraw": {                           // Same for withdraws
+        "ERC20": {
+          "min": "10",
+          "max": "1000"
+        },
+        "TRC20": {
+          "min": "10"
+        }
+      } 
     }
   },
   {...}
