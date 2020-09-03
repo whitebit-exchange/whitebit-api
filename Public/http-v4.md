@@ -142,7 +142,7 @@ NONE
     },
     "limits": {                               // This object will be returned when currency has several networks/providers
       "deposit": {                            // Deposits limits
-        "ERC20": {                            // Network
+        "ERC20": {                            // Network/provider
           "min": "10",                        // Min deposit amount
           "max": "1000"                       // Max deposit amount
         },
@@ -150,13 +150,13 @@ NONE
           "min": "10"                         // If there is no max limit, it is not returned
         }
       },
-      "withdraw": {                           // Same for withdraws
-        "ERC20": {
-          "min": "10",
-          "max": "1000"
+      "withdraw": {                           // Withdraws limits
+        "ERC20": {                            // Network/provider
+          "min": "10",                        // Min withdraw amount
+          "max": "1000"                       // Max withdraw amount
         },
         "TRC20": {
-          "min": "10"
+          "min": "10"                         // If there is no max limit, it is not returned
         }
       } 
     }
