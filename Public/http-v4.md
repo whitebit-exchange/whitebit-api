@@ -211,7 +211,7 @@ ___
 ```
 [GET] /api/v4/public/trades/{market}?type=sell
 ```
-This endpoint retrieves the trades that have been executed recently on the requested requested market.
+This endpoint retrieves the trades that have been executed recently on the requested market.
 
 **Response is cached for:**
 _1 second_
