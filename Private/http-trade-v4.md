@@ -123,6 +123,8 @@ market | String | **Yes** | Available market. Example: BTC_USDT
 side | String | **Yes** | Order type. Variables: 'buy' / 'sell' Example: 'buy'
 amount | String | **Yes** | Amount of stock currency to buy or sell. Example: '0.001'
 price | String | **Yes** | Price in money currency. Example: '9800'
+clientOrderId | String | **No** | Custom order id. This is the custom identifier you can use for your order. Format of the field: letters and numbers only. You can not use the same identifier for your order more than once in the next 24 hours.
+
 
 **Request BODY raw:**
 ```json5
@@ -131,6 +133,7 @@ price | String | **Yes** | Price in money currency. Example: '9800'
     "side": "buy",
     "amount": "0.01",
     "price": "9800",
+    "clientOrderId": "order1987111",
     "request": "{{request}}",
     "nonce": "{{nonce}}"
 }
@@ -152,6 +155,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
+    "clientOrderId": "order1987111",   // custom client order id
     "price": "9800",                   // price
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
@@ -168,6 +172,7 @@ Error codes:
 * `3` - incorrect price (it is less than or equals zero or its precision is too big)
 * `4` - incorrect taker fee (it is less than zero or its precision is too big)
 * `5` - incorrect maker fee (it is less than zero or its precision is too big)
+* `6` - incorrect clientOrderId (not a valid string or you have already used this identifier in the past 24 hours already)
 
 ```json5
 {
@@ -263,6 +268,33 @@ Error codes:
 }
 
 ```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field should be a string."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field format should be: «0-9a-z»"
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -281,6 +313,7 @@ Name | Type | Mandatory | Description
 market | String | **Yes** | Available market. Example: BTC_USDT
 side | String | **Yes** | Order type. Variables: 'buy' / 'sell' Example: 'buy'
 amount | String | **Yes** | ⚠️Amount of **`money`** currency to **buy** or amount in **`stock`** currency to **sell**. Example: '0.01' for buy and '0.0001' for sell.
+clientOrderId | String | **No** | Custom order id. This is the custom identifier which you can use for your order. Format of the field: letters and numbers only. You can not use the same identifier for your order more than once in the next 24 hours.
 
 **Request BODY raw:**
 ```json5
@@ -288,6 +321,7 @@ amount | String | **Yes** | ⚠️Amount of **`money`** currency to **buy** or a
     "market": "BTC_USDT",
     "side": "buy",
     "amount": "0.01",             // I want to buy 0.01 USDT
+    "clientOrderId": "order1987111",
     "request": "{{request}}",
     "nonce": "{{nonce}}"
 }
@@ -298,6 +332,7 @@ amount | String | **Yes** | ⚠️Amount of **`money`** currency to **buy** or a
     "market": "BTC_USDT",
     "side": "sell",
     "amount": "0.01",              // I want to sell 0.01 BTC
+    "clientOrderId": "order1987111",
     "request": "{{request}}",
     "nonce": "{{nonce}}"
 }
@@ -319,6 +354,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
+    "clientOrderId": "order1987111",   // custom client order id
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero
     "timestamp": 1595792396.165973,    // current timestamp
@@ -334,6 +370,7 @@ Error codes:
 * `3` - incorrect price (it is less than or equals zero or its precision is too big)
 * `4` - incorrect taker fee (it is less than zero or its precision is too big)
 * `5` - incorrect maker fee (it is less than zero or its precision is too big)
+* `6` - incorrect clientOrderId (not a valid string or you have already used this identifier in the past 24 hours already)
 
 ```json5
 {
@@ -414,6 +451,32 @@ Error codes:
 }
 
 ```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field should be a string."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field format should be: «0-9a-z»"
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
 </details>
 
 ___
@@ -434,6 +497,7 @@ side | String | **Yes** | Order type. Variables: 'buy' / 'sell' Example: 'buy'
 amount | String | **Yes** | Amount of stock currency to buy or sell. Example: '0.001'
 price | String | **Yes** | Price in money currency. Example: '9800'
 activation_price | String | **Yes** | Activation price in money currency. Example: '10000'
+clientOrderId | String | **No** | Custom order id. This is the custom identifier which you can use for your order. Format of the field: letters and numbers only. You can not use the same identifier for your order more than once in the next 24 hours.
 
 **Request BODY raw:**
 ```json5
@@ -443,6 +507,7 @@ activation_price | String | **Yes** | Activation price in money currency. Exampl
     "amount": "0.01",
     "price": "9800",
     "activation_price": "9800",
+    "clientOrderId": "order1987111",
     "request": "{{request}}",
     "nonce": "{{nonce}}"
 }
@@ -465,6 +530,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
+    "clientOrderId": "order1987111",   // custom client order id
     "price": "9800",                   // price
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
@@ -481,6 +547,7 @@ Error codes:
 * `3` - incorrect price (it is less than or equals zero or its precision is too big)
 * `4` - incorrect taker fee (it is less than zero or its precision is too big)
 * `5` - incorrect maker fee (it is less than zero or its precision is too big)
+* `6` - incorrect clientOrderId (not a valid string or you have already used this identifier in the past 24 hours already)
 
 ```json5
 {
@@ -591,6 +658,33 @@ Error codes:
 }
 
 ```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field should be a string."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field format should be: «0-9a-z»"
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -610,6 +704,7 @@ market | String | **Yes** | Available market. Example: BTC_USDT
 side | String | **Yes** | Order type. Variables: 'buy' / 'sell' Example: 'buy'
 amount | String | **Yes** | ⚠️Amount of **`money`** currency to **buy** or amount in **`stock`** currency to **sell**. Example: '0.01' for buy and '0.0001' for sell.
 activation_price | String | **Yes** | Activation price in money currency. Example: '10000'
+clientOrderId | String | **No** | Custom order id. This is the custom identifier which you can use for your order. Format of the field: letters and numbers only. You can not use the same identifier for your order more than once in the next 24 hours.
 
 **Request BODY raw:**
 ```json5
@@ -618,6 +713,7 @@ activation_price | String | **Yes** | Activation price in money currency. Exampl
     "side": "buy",
     "amount": "0.01",              // I want to buy 0.01 USDT
     "activation_price": "10000",
+    "clientOrderId": "order1987111",
     "request": "{{request}}",
     "nonce": "{{nonce}}"
 }
@@ -650,6 +746,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
+    "clientOrderId": "order1987111",   // custom order identifier 
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
     "timestamp": 1595792396.165973,    // current timestamp
@@ -665,6 +762,7 @@ Error codes:
 * `3` - incorrect price (it is less than or equals zero or its precision is too big)
 * `4` - incorrect taker fee (it is less than zero or its precision is too big)
 * `5` - incorrect maker fee (it is less than zero or its precision is too big)
+* `6` - incorrect clientOrderId (not a valid string or you have already used this identifier in the past 24 hours already)
 
 ```json5
 {
@@ -748,6 +846,32 @@ Error codes:
 }
 
 ```
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field should be a string."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "The field format should be: «0-9a-z»"
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -795,6 +919,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
+    "clientOrderId": "customId11",     // custom order identifier 
     "price": "9800",                   // price if price isset
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
@@ -919,6 +1044,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
         "makerFee": "0.001",              // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
         "market": "BTC_USDT",             // currency market
         "orderId": 3686033640,            // unexecuted order ID
+        "clientOrderId": "customId11",    // custom order identifier 
         "price": "7900",                  // unexecuted order price
         "side": "buy",                    // type of order
         "takerFee": "0.001",              // taker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
@@ -1035,14 +1161,15 @@ offset | Int | **No** | If you want the request to return entries starting from 
 {
     "BTC_USDT": [
         {
-            "amount": "0.000076",         // amount in stock
-            "deal": "0.70407996",         // amount in money
-            "fee": "0.00070407996",       // paid fee 
-            "id": 160305483,              // orderID
-            "price": "9264.21",           // price
-            "role": 2,                    // Role - 1 - maker, 2 - taker
-            "side": "sell",               // Order side "sell" / "buy"
-            "time": 1594667731.724403     // Timestamp of the executed order
+            "amount": "0.000076",          // amount in stock
+            "deal": "0.70407996",          // amount in money
+            "fee": "0.00070407996",        // paid fee 
+            "id": 160305483,               // orderID
+            "clientOrderId": "customId11", // custom order identifier 
+            "price": "9264.21",            // price
+            "role": 2,                     // Role - 1 - maker, 2 - taker
+            "side": "sell",                // Order side "sell" / "buy"
+            "time": 1594667731.724403      // Timestamp of the executed order
         },
         {...}
     ],
@@ -1129,6 +1256,7 @@ Empty response if order is not yours
                 "dealOrderId": 3134995325,      // completed order Id
                 "fee": "0.00000419198",         // fee that you pay 
                 "id": 149156519,                // trade id
+                "clientOrderId": "customId11",  // custom order identifier 
                 "price": "0.00000701",          // price
                 "role": 2,                      // Role - 1 - maker, 2 - taker
                 "time": 1593342324.613711       // Timestamp of executed order
@@ -1240,6 +1368,7 @@ Empty response if order is not yours
             "dealStock": "0.020159",          // amount in stock currency that finished
             "ftime": 1597486960.311332,       // executed order timestamp
             "id": 4986126152,                 // order id
+            "clientOrderId": "customId11",    // custom order identifier 
             "makerFee": "0",                  // maker fee ratio. If the number less than 0.0001 - its rounded to zero  
             "price": "0",                     // price
             "side": "sell",                   // order side
