@@ -343,7 +343,7 @@ All possible [order types](#order-types)
                 "deal_stock": "0",          // Stock amount that executed
                 "deal_money": "0",          // Money amount that executed
                 "deal_fee": "0",            // Charged fee amount in money,
-                "client_order_id": "22"     // Client order identifier
+                "client_order_id": "22"     // Custom client order id
             },
             ...
         ]
@@ -410,7 +410,7 @@ If new order instantly matches an order from orderbook, then you will receive on
             "deal_fee": "2.101544088",   // Charged fee amount in money,
             "client_order_id": "22"      // Custom client order id
         }
-    ],
+    ]
 }
 ```
 
@@ -488,7 +488,7 @@ All possible [order types](#order-types)
                 "deal_stock": "0.633232",     // Stock amount that executed
                 "deal_money": "5799.1069944", // Money amount that executed
                 "deal_fee": "5.7991069944",   // Charged fee amount in money,
-                "client_order_id": "-a-a-a"   // Custom client order id identifier
+                "client_order_id": "-a-a-a"   // Custom client order id
             },
             ...
         ]
