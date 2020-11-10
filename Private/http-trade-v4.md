@@ -154,7 +154,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "order1987111",   // custom client order id
+    "clientOrderId": "order1987111",   // custom client order id; "clientOrderId": "" - if not specified.
     "price": "9800",                   // price
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
@@ -294,6 +294,19 @@ Error codes:
 
 ```
 
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "This client order id is already used by the current account. It will become available in 59 seconds."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -319,7 +332,7 @@ clientOrderId | String | **No** | Identifier should be unique and contain letter
 {
     "market": "BTC_USDT",
     "side": "buy",
-    "amount": "0.01",             // I want to buy 0.01 USDT
+    "amount": "50",             // I want to buy for 50 USDT
     "clientOrderId": "order1987111",
     "request": "{{request}}",
     "nonce": "{{nonce}}"
@@ -353,7 +366,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "order1987111",   // custom client order id
+    "clientOrderId": "order1987111",   // custom client order id; "clientOrderId": "" - if not specified.
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero
     "timestamp": 1595792396.165973,    // current timestamp
@@ -476,6 +489,19 @@ Error codes:
 }
 
 ```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "This client order id is already used by the current account. It will become available in 59 seconds."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
 </details>
 
 ___
@@ -529,7 +555,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "order1987111",   // custom client order id
+    "clientOrderId": "order1987111",   // custom client order id; "clientOrderId": "" - if not specified.
     "price": "9800",                   // price
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
@@ -684,6 +710,19 @@ Error codes:
 
 ```
 
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "This client order id is already used by the current account. It will become available in 59 seconds."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -710,7 +749,7 @@ clientOrderId | String | **No** | Identifier should be unique and contain letter
 {
     "market": "BTC_USDT",
     "side": "buy",
-    "amount": "0.01",              // I want to buy 0.01 USDT
+    "amount": "50",              // I want to buy for 50 USDT
     "activation_price": "10000",
     "clientOrderId": "order1987111",
     "request": "{{request}}",
@@ -745,7 +784,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "order1987111",   // custom order identifier 
+    "clientOrderId": "order1987111",   // custom order identifier; "clientOrderId": "" - if not specified.
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
     "timestamp": 1595792396.165973,    // current timestamp
@@ -871,6 +910,19 @@ Error codes:
 
 ```
 
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "This client order id is already used by the current account. It will become available in 59 seconds."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -918,7 +970,7 @@ Available statuses:
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "customId11",     // custom order identifier 
+    "clientOrderId": "customId11",     // custom order identifier; "clientOrderId": "" - if not specified.
     "price": "9800",                   // price if price isset
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero
@@ -1043,7 +1095,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
         "makerFee": "0.001",              // maker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
         "market": "BTC_USDT",             // currency market
         "orderId": 3686033640,            // unexecuted order ID
-        "clientOrderId": "customId11",    // custom order identifier 
+        "clientOrderId": "customId11",    // custom order id; "clientOrderId": "" - if not specified. 
         "price": "7900",                  // unexecuted order price
         "side": "buy",                    // type of order
         "takerFee": "0.001",              // taker fee ratio. If the number less than 0.0001 - it will be rounded to zero    
@@ -1164,7 +1216,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
             "deal": "0.70407996",          // amount in money
             "fee": "0.00070407996",        // paid fee 
             "id": 160305483,               // orderID
-            "clientOrderId": "customId11", // custom order identifier 
+            "clientOrderId": "customId11", // custom order id; "clientOrderId": "" - if not specified.
             "price": "9264.21",            // price
             "role": 2,                     // Role - 1 - maker, 2 - taker
             "side": "sell",                // Order side "sell" / "buy"
@@ -1255,7 +1307,7 @@ Empty response if order is not yours
                 "dealOrderId": 3134995325,      // completed order Id
                 "fee": "0.00000419198",         // fee that you pay 
                 "id": 149156519,                // trade id
-                "clientOrderId": "customId11",  // custom order identifier 
+                "clientOrderId": "customId11",  // custom order id; "clientOrderId": "" - if not specified. 
                 "price": "0.00000701",          // price
                 "role": 2,                      // Role - 1 - maker, 2 - taker
                 "time": 1593342324.613711       // Timestamp of executed order
@@ -1367,7 +1419,7 @@ Empty response if order is not yours
             "dealStock": "0.020159",          // amount in stock currency that finished
             "ftime": 1597486960.311332,       // executed order timestamp
             "id": 4986126152,                 // order id
-            "clientOrderId": "customId11",    // custom order identifier 
+            "clientOrderId": "customId11",    // custom order identifier; "clientOrderId": "" - if not specified.
             "makerFee": "0",                  // maker fee ratio. If the number less than 0.0001 - its rounded to zero  
             "price": "0",                     // price
             "side": "sell",                   // order side

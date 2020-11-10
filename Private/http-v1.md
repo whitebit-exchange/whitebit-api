@@ -203,7 +203,7 @@ market | String | **Yes** | Available market. Example: BTC_USDT
 side | String | **Yes** | Order type. Variables: 'buy' / 'sell' Example: 'buy'
 amount | String | **Yes** | Amount of stock currency to buy or sell. Example: '0.001'
 price | String | **Yes** | Price in money currency. Example: '9800'
-clientOrderId | String | **No** | Identifier should be unique and contain letters, dashes or numbers only. The identifier must be unique for the next 24 hours.
+clientOrderId | String | **No** | Identifier should be unique and contain letters, dashes or numbers only. The identifier must be unique for the next 24 hours. 
                                 
 
 **Request BODY raw:**
@@ -230,7 +230,7 @@ clientOrderId | String | **No** | Identifier should be unique and contain letter
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "order1987111",   // custom client order id
+    "clientOrderId": "order1987111",   // custom client order id; "clientOrderId": "" - if not specified.
     "price": "9800",                   // price
     "side": "buy",                     // order side
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero
@@ -361,6 +361,20 @@ clientOrderId | String | **No** | Identifier should be unique and contain letter
 }
 
 ```
+
+```json5
+{
+    "code": 0,
+    "errors": {
+        "clientOrderId": [
+            "This client order id is already used by the current account. It will become available in 59 seconds."
+        ]
+    },
+    "message": "Validation failed"
+}
+
+```
+
 </details>
 
 ___
@@ -400,7 +414,7 @@ orderId | Int | **Yes** | Order Id. Example: 4180284841
     "makerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero    
     "market": "BTC_USDT",              // deal market
     "orderId": 4180284841,             // order id
-    "clientOrderId": "order1987111",   // custom client order id
+    "clientOrderId": "order1987111",   // custom client order id; "clientOrderId": "" - if not specified.
     "price": "9800",                   // price
     "side": "buy",                     // order type
     "takerFee": "0.001",               // maker fee ratio. If the number less than 0.0001 - its rounded to zero
@@ -518,7 +532,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
         "makerFee": "0.001",              // maker fee ratio. If the number less than 0.0001 - its rounded to zero    
         "market": "BTC_USDT",             // currency market
         "orderId": 3686033640,            // unexecuted order ID
-        "clientOrderId": "order1987111",  // custom client order id
+        "clientOrderId": "order1987111",  // custom client order id; "clientOrderId": "" - if not specified.
         "price": "7900",                  // unexecuted order price
         "side": "buy",                    // type of order
         "takerFee": "0.001",              // taker fee ratio. If the number less than 0.0001 - its rounded to zero    
@@ -645,6 +659,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
                 "dealStock": "0.000076",          // executed order amount in stock
                 "ftime": 1594667731.724403,       // executed order finish time
                 "id": 3711942768,                 // executed order ID
+                "clientOrderId": "order11-23-3",  // custom client order ID; "clientOrderId": "" - if not specified.
                 "makerFee": "0.001",              // maker fee ratio. If the number less than 0.0001 - its rounded to zero
                 "market": "BTC_USDT",             // mair
                 "marketName": "BTC_USDT",         // market name
@@ -766,7 +781,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
             "deal": "0.70407996",             // amount in money
             "fee": "0.00070407996",           // fee that you pay 
             "id": 160305483,                  // orderID
-            "clientOrderId": "order1987111",  // custom client order id
+            "clientOrderId": "order1987111",  // custom client order id; "clientOrderId": "" - if not specified.
             "price": "9264.21",               // price
             "role": 2,                        // Role - 1 - maker, 2 - taker
             "side": "sell",                   // Order side "sell" / "buy"
@@ -879,7 +894,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
                 "deal": "0.70407996",               // amount in money
                 "fee": "0.00070407996",             // paid fee
                 "id": 160305483,                    // orderID
-                "clientOrderId": "order1987111",    // custom client order id
+                "clientOrderId": "order1987111",    // custom client order id; "clientOrderId": "" - if not specified.
                 "price": "9264.21",                 // price
                 "role": 2,                          // Role - 1 - maker, 2 - taker
                 "side": "sell",                     // Order side "sell" / "buy"
@@ -1000,7 +1015,7 @@ Empty response if order is not yours
                 "dealOrderId": 3134995325,          // completed order ID
                 "fee": "0.00000419198",             // paid fee
                 "id": 149156519,                    // id of trade
-                "clientOrderId": "order1987111",    // custom client order id
+                "clientOrderId": "order1987111",    // custom client order id; "clientOrderId": "" - if not specified.
                 "price": "0.00000701",              // price
                 "role": 2,                          // Role - 1 - maker, 2 - taker
                 "time": 1593342324.613711           // Timestamp of executed order
