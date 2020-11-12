@@ -7,7 +7,7 @@
 * [Orderbook](#orderbook)
 * [Recent Trades](#recent-trades)
 * [Server Time](#server-time)
-
+* [Server Status](#server-status)
     
 Base URL is https://whitebit.com
 
@@ -266,7 +266,7 @@ _1 second_
   "time": 1605168359 
 }
 ```
-### Server Time
+### Server Status
 
 ```
 [GET] /api/v4/public/ping
