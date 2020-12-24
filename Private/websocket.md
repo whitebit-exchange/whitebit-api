@@ -2,6 +2,7 @@
 
 ## Methods
 
+* [Websocket token](#websocket-token)
 * [Authorize](#authorize)
 * [Balance Spot](#balance-spot)
     * [Query](#query)
@@ -148,6 +149,33 @@ Code | Message
 
 ## API
 
+### Websocket token
+
+```
+[POST] /api/v4/profile/websocket_token
+```
+This V4 endpoint can be used to retrieve the websocket token for user.
+
+**Request BODY raw:**
+```json5
+{
+    "request": "{{request}}",
+    "nonce": "{{nonce}}"
+}
+```
+
+**Response:**
+
+Available statuses:
+* `Status 200`
+
+```json5
+{
+    "websocket_token": "your_current_token"
+}
+```
+___
+
 ### Authorize
 
 When you establish WS connection, you should authorize this ws connection via `authorize` method. 
@@ -155,7 +183,7 @@ After successful authorization you will be able to send requests for balances, o
 
 It only needs to be done successfully once.
 
-At this momen websocket token you can get only from Chrome DevTools:
+At this moment you can get the websocket token by using [this endpoint](#websocket-token) or from the Chrome DevTools:
 1. Open the [WhiteBIT](https://whitebit.com);
 2. Open devtools;
 3. Write in console `window.WEBSOCKET_TOKEN` and copy the result.
